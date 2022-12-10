@@ -1,0 +1,54 @@
+﻿@page "/post"
+@inject HttpClient client
+@inject IJSRuntime js
+@using BlazorCrud.Shared.Models
+<h3>Post</h3>
+    <a class="btn btn-success" href="create">Create New</a>
+<p></p>
+@if (datas == null)
+{
+    <text>Loading...</text>
+}
+else if (datas.Length == 0)
+{
+    <text>No Records Found.</text>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Body</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Post res in datas)
+            {
+                <tr>
+                    <td>@res.Id</td>
+                    <td>@res.Title</td>
+                    <td>@res.Body</td>
+                    <td>
+                        <a class="btn btn-success" href="edit/@res.Id">Edit</a>
+                        <button class="btn btn-danger" @onclick="@(() => Delete(res.Id))">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@code {
+    Post[] datas { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        datas = await client.GetFromJsonAsync<Post[]>("api/Posts");
+    }
+    async Task Delete(int Id)
+    {
+        await client.DeleteAsync($"api/Posts/{Id}");
+        await OnInitializedAsync();
+    }
+}

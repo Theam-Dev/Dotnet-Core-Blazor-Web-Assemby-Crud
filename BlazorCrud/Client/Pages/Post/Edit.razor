@@ -1,0 +1,43 @@
+﻿@page "/edit/{Id:int}"
+@inject HttpClient http
+@inject NavigationManager uriHelper
+@inject IJSRuntime js
+@using BlazorCrud.Shared.Models
+
+<h3>Update</h3>
+<EditForm Model="@datas" OnValidSubmit="@EditData">
+     <DataAnnotationsValidator />
+     <input type="hidden" @bind-value="@datas.Id"/>
+     <div class="form-group">
+        <label>Title :</label>
+        <input type="text" class="form-control" @bind-value="@datas.Title" placeholder="Title">
+            <ValidationMessage For="@(() => datas.Title)" />
+    </div>
+    <div class="form-group ">
+        <div>
+            <label>Body :</label>
+            <input type="text" class="form-control" @bind-value="@datas.Body" placeholder="Body">
+                <ValidationMessage For="@(() => datas.Body)" />
+        </div>
+    </div>
+   <p></p>
+        <button type="submit" class="btn btn-success">
+            Update
+        </button>
+   
+</EditForm>
+@code {
+    [Parameter] 
+    public int Id { get; set; }
+    public Post datas = new Post();
+    public EventCallback OnValidSubmit { get; set; }
+    protected async override Task OnParametersSetAsync()
+    {
+        datas = await http.GetFromJsonAsync<Post>($"api/posts/{Id}");
+    }
+    protected async Task EditData()
+    {
+        await http.PutAsJsonAsync("api/posts", datas);
+        uriHelper.NavigateTo("post");
+    }
+}

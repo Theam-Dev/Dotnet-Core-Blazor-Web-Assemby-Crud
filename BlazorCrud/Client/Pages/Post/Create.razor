@@ -1,0 +1,34 @@
+﻿@page "/create"
+@inject HttpClient http
+@inject NavigationManager uriHelper
+@using BlazorCrud.Shared.Models
+
+<h3>Create</h3>
+<EditForm Model="@datas" OnValidSubmit="@SaveData">
+     <DataAnnotationsValidator />
+     <div class="form-group">
+        <label>Title :</label>
+        <input type="text" class="form-control" @bind-value="@datas.Title" placeholder="Title">
+            <ValidationMessage For="@(() => datas.Title)" />
+    </div>
+    <div class="form-group">
+        <div>
+            <label>Body :</label>
+            <input type="text" class="form-control" @bind-value="@datas.Body" placeholder="Body">
+                <ValidationMessage For="@(() => datas.Body)" />
+        </div>
+    </div>
+    <p></p>
+        <button type="submit" class="btn btn-success">
+            Create
+        </button>
+</EditForm>
+@code {
+    public Post datas = new Post();
+    public EventCallback OnValidSubmit { get; set; }
+    protected async Task SaveData()
+    {
+        await http.PostAsJsonAsync("api/posts", datas);
+        uriHelper.NavigateTo("post");
+    }
+}

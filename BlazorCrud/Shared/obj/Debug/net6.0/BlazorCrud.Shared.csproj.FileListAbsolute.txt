@@ -1,0 +1,12 @@
+D:\Lesson\AspCore\Blazor\BlazorCrud\BlazorCrud\Shared\bin\Debug\net6.0\BlazorCrud.Shared.deps.json
+D:\Lesson\AspCore\Blazor\BlazorCrud\BlazorCrud\Shared\bin\Debug\net6.0\BlazorCrud.Shared.dll
+D:\Lesson\AspCore\Blazor\BlazorCrud\BlazorCrud\Shared\bin\Debug\net6.0\BlazorCrud.Shared.pdb
+D:\Lesson\AspCore\Blazor\BlazorCrud\BlazorCrud\Shared\obj\Debug\net6.0\BlazorCrud.Shared.csproj.AssemblyReference.cache
+D:\Lesson\AspCore\Blazor\BlazorCrud\BlazorCrud\Shared\obj\Debug\net6.0\BlazorCrud.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\Lesson\AspCore\Blazor\BlazorCrud\BlazorCrud\Shared\obj\Debug\net6.0\BlazorCrud.Shared.AssemblyInfoInputs.cache
+D:\Lesson\AspCore\Blazor\BlazorCrud\BlazorCrud\Shared\obj\Debug\net6.0\BlazorCrud.Shared.AssemblyInfo.cs
+D:\Lesson\AspCore\Blazor\BlazorCrud\BlazorCrud\Shared\obj\Debug\net6.0\BlazorCrud.Shared.csproj.CoreCompileInputs.cache
+D:\Lesson\AspCore\Blazor\BlazorCrud\BlazorCrud\Shared\obj\Debug\net6.0\BlazorCrud.Shared.dll
+D:\Lesson\AspCore\Blazor\BlazorCrud\BlazorCrud\Shared\obj\Debug\net6.0\refint\BlazorCrud.Shared.dll
+D:\Lesson\AspCore\Blazor\BlazorCrud\BlazorCrud\Shared\obj\Debug\net6.0\BlazorCrud.Shared.pdb
+D:\Lesson\AspCore\Blazor\BlazorCrud\BlazorCrud\Shared\obj\Debug\net6.0\ref\BlazorCrud.Shared.dll
